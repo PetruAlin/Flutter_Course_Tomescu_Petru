@@ -30,7 +30,7 @@ class _CurrencyState extends State<Currency> {
   final TextEditingController controller = TextEditingController();
   String? text;
   String lei = '';
-  String error = '';
+  String? error;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,6 @@ class _CurrencyState extends State<Currency> {
         centerTitle: true,
       ),
       body: Column(
-        //crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Image.network('https://storage0.dms.mpinteractiv.ro/media/1/1481/22466/19093585/1/76459788-l.jpg?width=600'),
           Center(
@@ -51,15 +50,27 @@ class _CurrencyState extends State<Currency> {
                   Container(
                     margin: const EdgeInsetsDirectional.all(14.0),
                     child: TextField(
+                      enabled: true,
                       controller: controller,
                       keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(
                         labelText: 'Enter the amount in EUR',
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
                         errorText: error,
+                        enabledBorder: const UnderlineInputBorder (
+                          borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 1.0,
+                              style: BorderStyle.solid,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                  ElevatedButton(
+                  TextButton(
+                      style: ButtonStyle(
+
+                      ),
                       onPressed: () {
                         final String value = controller.text;
                         final double? euroValue = double.tryParse(value);
@@ -70,8 +81,8 @@ class _CurrencyState extends State<Currency> {
                           });
                         } else {
                           setState(() {
-                            error = '';
-                            lei = (((euroValue * 4.5) * 100).ceil() / 100).toString();
+                            error = null;
+                            lei = (euroValue * 4.5).toStringAsFixed(2);
                           });
                         }
                         FocusScope.of(context).requestFocus(FocusNode());
