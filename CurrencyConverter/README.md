@@ -1,3 +1,3 @@
 # currency_converter
-![Wrong input given](Screenshot_1636126861.png)
+![Wrong input given](screenshot\Screenshot_1636126861.png)
 
