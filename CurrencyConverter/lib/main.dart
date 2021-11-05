@@ -55,13 +55,6 @@ class _CurrencyState extends State<Currency> {
                         labelText: 'Enter the amount in EUR',
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         errorText: error,
-                        enabledBorder: const UnderlineInputBorder (
-                          borderSide: BorderSide(
-                              color: Colors.blue,
-                              width: 1.0,
-                              style: BorderStyle.solid,
-                          ),
-                        ),
                       ),
                     ),
                   ),
