@@ -83,7 +83,6 @@ class _CurrencyState extends State<Currency> {
                     lei = (euroValue * 4.5).toStringAsFixed(2) + ' RON';
                   });
                 }
-                //FocusScope.of(context).requestFocus(FocusNode());
               },
               child: const Text('Convert')
           ),
