@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -67,31 +65,31 @@ class _CurrencyState extends State<Currency> {
                       ),
                     ),
                   ),
-                  TextButton(
-                      style: ButtonStyle(
-
-                      ),
-                      onPressed: () {
-                        final String value = controller.text;
-                        final double? euroValue = double.tryParse(value);
-                        if (euroValue == null) {
-                          setState(() {
-                            error = "Please enter a number";
-                            lei = '';
-                          });
-                        } else {
-                          setState(() {
-                            error = null;
-                            lei = (euroValue * 4.5).toStringAsFixed(2);
-                          });
-                        }
-                        FocusScope.of(context).requestFocus(FocusNode());
-                      },
-                      child: const Text('Convert')
-                  ),
-                  Text(lei),
                 ],
             ),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                final String value = controller.text;
+                final double? euroValue = double.tryParse(value);
+                if (euroValue == null) {
+                  setState(() {
+                    error = "Please enter a number";
+                    lei = '';
+                  });
+                } else {
+                  setState(() {
+                    error = null;
+                    lei = (euroValue * 4.5).toStringAsFixed(2) + ' RON';
+                  });
+                }
+                //FocusScope.of(context).requestFocus(FocusNode());
+              },
+              child: const Text('Convert')
+          ),
+          Text(
+            lei,
+            textScaleFactor: 1.5,
           ),
         ],
       ),
