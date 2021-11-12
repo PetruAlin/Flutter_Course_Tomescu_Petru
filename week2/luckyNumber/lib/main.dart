@@ -37,7 +37,7 @@ class _GuessNumberState extends State<GuessNumber> {
   String guessButton = 'Guess';
   int secretNumber = -1;
 
-  void dialogbox(int guess) {
+  void _dialogbox(int guess) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -158,7 +158,7 @@ class _GuessNumberState extends State<GuessNumber> {
                                       resultText =
                                       'You tried $guess\n You guessed right.';
                                       //enable = false;
-                                      dialogbox(guess);
+                                      _dialogbox(guess);
                                     }
                                   }
                                 }
