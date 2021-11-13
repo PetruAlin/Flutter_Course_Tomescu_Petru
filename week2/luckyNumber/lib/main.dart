@@ -37,7 +37,7 @@ class _GuessNumberState extends State<GuessNumber> {
   String guessButton = 'Guess';
   int secretNumber = -1;
 
-  void _dialogbox(int guess) {
+  void _dialogBox(int guess) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -50,9 +50,10 @@ class _GuessNumberState extends State<GuessNumber> {
                     Navigator.pop(context);
                     setState(() {
                       secretNumber = -1;
+                      resultText = '';
                     });
                   },
-                  child: Text('Try again')),
+                  child: const Text('Try again')),
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -83,93 +84,99 @@ class _GuessNumberState extends State<GuessNumber> {
           children: [
             const Text(
               'I\'m thinking of a number between 1 and 100.',
-              textScaleFactor: 2,
+              textScaleFactor: 1.9,
               textAlign: TextAlign.center,
             ),
             //Padding(padding:,)
-            const Text(
-              'It\'s your turn to guess my number!',
-              textScaleFactor: 1.3,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              child: Text(
+                'It\'s your turn to guess my number!',
+                textScaleFactor: 1.3,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-            Text(
-              resultText,
-              textScaleFactor: 1.5,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Text(
+                resultText,
+                textScaleFactor: 2,
+                style: const TextStyle(color: Colors.grey),
+              ),
             ),
-            Container(
-              child: Card(
-                elevation: 20.0,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 80 / 100,
-                  height: MediaQuery.of(context).size.height * 25 / 100,
-                  child: Column(
-                    children: [
-                      const Text(
-                          'Try a number!',
-                          textScaleFactor: 1.8,
-                          style: TextStyle(color: Colors.grey),
-                      ),
-                      Container(
-                        margin: EdgeInsetsDirectional.all(14.0),
-                        child: TextField(
-                          enabled: enable,
-                          focusNode: node,
-                          controller: controller,
-                          keyboardType: const TextInputType.numberWithOptions(decimal: false),
-                          decoration: InputDecoration(
-                            errorText: error,
-                          ),
+            Card(
+              elevation: 10.0,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 80 / 100,
+                height: MediaQuery.of(context).size.height * 25 / 100,
+                child: Column(
+                  children: [
+                    const Text(
+                        'Try a number!',
+                        textScaleFactor: 1.8,
+                        style: TextStyle(color: Colors.grey),
+                    ),
+                    Container(
+                      margin: const EdgeInsetsDirectional.all(14.0),
+                      child: TextField(
+                        enabled: enable,
+                        focusNode: node,
+                        controller: controller,
+                        keyboardType: const TextInputType.numberWithOptions(decimal: false),
+                        decoration: InputDecoration(
+                          errorText: error,
                         ),
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            FocusScope.of(context).requestFocus(node);
-                            if (guessButton == 'Reset') {
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(node);
+                          if (guessButton == 'Reset') {
+                            setState(() {
+                              enable = true;
+                              guessButton = 'Guess';
+                              resultText = '';
+                            }
+                            );
+                          } else {
+                            final String value = controller.text;
+                            final int? guess = int.tryParse(value);
+                            controller.clear();
+                            if (guess == null) {
                               setState(() {
-                                enable = true;
-                                guessButton = 'Guess';
-                              }
-                              );
+                                error = "Please enter a number";
+                              });
                             } else {
-                              final String value = controller.text;
-                              final int? guess = int.tryParse(value);
-                              controller.clear();
-                              if (guess == null) {
-                                setState(() {
-                                  error = "Please enter a number";
-                                });
-                              } else {
-                                setState(() {
-                                  error = null;
-                                  if (secretNumber == -1) {
-                                    secretNumber = Random().nextInt(99) + 1;
-                                  }
-                                  if (secretNumber > guess) {
+                              setState(() {
+                                error = null;
+                                if (secretNumber == -1) {
+                                  secretNumber = Random().nextInt(99) + 1;
+                                }
+                                if (secretNumber > guess) {
+                                  resultText =
+                                  'You tried $guess\n Try higher.';
+                                } else {
+                                  if (secretNumber < guess) {
                                     resultText =
-                                    'You tried $guess\n Try higher.';
+                                    'You tried $guess\n  Try lower.';
                                   } else {
-                                    if (secretNumber < guess) {
-                                      resultText =
-                                      'You tried $guess\n     Try lower.';
-                                    } else {
-                                      resultText =
-                                      'You tried $guess\n You guessed right.';
-                                      //enable = false;
-                                      _dialogbox(guess);
-                                    }
+                                    resultText =
+                                    'You tried $guess\n You guessed right.';
+                                    _dialogBox(guess);
+                                    FocusScope.of(context).unfocus();
                                   }
                                 }
-                                );
                               }
+                              );
                             }
-                          },
-                          child: Text(guessButton),
-                      )
-                    ],
-                  ),
+                          }
+                        },
+                        child: Text(guessButton),
+                    )
+                  ],
                 ),
               ),
             ),

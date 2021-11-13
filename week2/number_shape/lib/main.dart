@@ -106,23 +106,27 @@ class _NumberShapesState extends State<NumberShapes> {
               controller.clear();
             });
           } else {
-            error = null;
-            String dialogText = '';
-            controller.clear();
-            if (_checkSquare(number)) {
-              if (_checkTriangle(number)) {
-                dialogText = "Number $number is both SQUARE and TRIANGULAR.";
+            setState(() {
+              error = null;
+              String dialogText = '';
+              controller.clear();
+              if (_checkSquare(number)) {
+                if (_checkTriangle(number)) {
+                  dialogText = "Number $number is both SQUARE and TRIANGULAR.";
+                } else {
+                  dialogText = "Number $number is SQUARE.";
+                }
               } else {
-                dialogText = "Number $number is SQUARE.";
+                if (_checkTriangle(number)) {
+                  dialogText = "Number $number is TRIANGULAR.";
+                } else {
+                  dialogText =
+                  "Number $number is neither TRIANGULAR or SQUARE.";
+                }
               }
-            } else {
-              if (_checkTriangle(number)) {
-                dialogText = "Number $number is TRIANGULAR.";
-              } else {
-                dialogText = "Number $number is neither TRIANGULAR or SQUARE.";
-              }
-            }
-            _dialogbox(number, dialogText);
+              _dialogbox(number, dialogText);
+              FocusScope.of(context).unfocus();
+            });
           }
         },
         child: const Icon(Icons.check),
