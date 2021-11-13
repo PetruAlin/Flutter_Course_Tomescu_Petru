@@ -1,3 +1,5 @@
 # Flutter_Course_Tomescu_Petru
-Structura repo:
--CurrencyConverter: tema pentru prima saptamana si README-ul sau;
+
+## Repo Structure:
+	Each folder week_id contains the projects for that particular week.
+	Each project has a README file with implementation details and videos or photos shwoing the app.
