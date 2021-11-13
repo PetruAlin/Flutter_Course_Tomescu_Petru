@@ -1,16 +1,11 @@
 # lucky_number
 
-A new Flutter project.
+Guess the random generated number form 1 to 100.
 
-## Getting Started
+## Preview
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://user-images.githubusercontent.com/72905736/141623641-ec90a9cd-097d-4aa4-a382-a70d77d004c5.mp4
+
