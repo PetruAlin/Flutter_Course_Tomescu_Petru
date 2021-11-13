@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: const NumberShapes(),
+    return const MaterialApp(
+      title: 'Number Shapes',
+      home: NumberShapes(),
     );
   }
 }
@@ -28,7 +28,7 @@ class _NumberShapesState extends State<NumberShapes> {
   final FocusNode node = FocusNode();
   String? error;
 
-  void _dialogbox(int number, String dialogText) {
+  void _dialogBox(int number, String dialogText) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -124,7 +124,7 @@ class _NumberShapesState extends State<NumberShapes> {
                   "Number $number is neither TRIANGULAR or SQUARE.";
                 }
               }
-              _dialogbox(number, dialogText);
+              _dialogBox(number, dialogText);
               FocusScope.of(context).unfocus();
             });
           }

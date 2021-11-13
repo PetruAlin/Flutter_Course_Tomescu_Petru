@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Lucky Number',
-
       home: GuessNumber(),
     );
   }
@@ -87,7 +86,6 @@ class _GuessNumberState extends State<GuessNumber> {
               textScaleFactor: 1.9,
               textAlign: TextAlign.center,
             ),
-            //Padding(padding:,)
             const Padding(
               padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
               child: Text(
@@ -139,8 +137,7 @@ class _GuessNumberState extends State<GuessNumber> {
                               enable = true;
                               guessButton = 'Guess';
                               resultText = '';
-                            }
-                            );
+                            });
                           } else {
                             final String value = controller.text;
                             final int? guess = int.tryParse(value);
@@ -169,8 +166,7 @@ class _GuessNumberState extends State<GuessNumber> {
                                     FocusScope.of(context).unfocus();
                                   }
                                 }
-                              }
-                              );
+                              });
                             }
                           }
                         },
