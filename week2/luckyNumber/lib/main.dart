@@ -37,13 +37,13 @@ class _GuessNumberState extends State<GuessNumber> {
   int secretNumber = -1;
 
   void _dialogBox(int guess) {
-    showDialog(
+    showDialog<void>( // here
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text('You guessed right'),
             content: Text('It was $guess'),
-            actions: [
+            actions: <Widget>[
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -80,16 +80,16 @@ class _GuessNumberState extends State<GuessNumber> {
       ),
       body: Center(
         child: Column(
-          children: [
+          children: <Widget>[
             const Text(
-              'I\'m thinking of a number between 1 and 100.',
+              "I'm thinking of a number between 1 and 100.",
               textScaleFactor: 1.9,
               textAlign: TextAlign.center,
             ),
             const Padding(
               padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
               child: Text(
-                'It\'s your turn to guess my number!',
+                "It's your turn to guess my number!",
                 textScaleFactor: 1.3,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -111,7 +111,7 @@ class _GuessNumberState extends State<GuessNumber> {
                 width: MediaQuery.of(context).size.width * 80 / 100,
                 height: MediaQuery.of(context).size.height * 25 / 100,
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     const Text(
                         'Try a number!',
                         textScaleFactor: 1.8,
@@ -123,7 +123,7 @@ class _GuessNumberState extends State<GuessNumber> {
                         enabled: enable,
                         focusNode: node,
                         controller: controller,
-                        keyboardType: const TextInputType.numberWithOptions(decimal: false),
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           errorText: error,
                         ),
@@ -144,7 +144,7 @@ class _GuessNumberState extends State<GuessNumber> {
                             controller.clear();
                             if (guess == null) {
                               setState(() {
-                                error = "Please enter a number";
+                                error = 'Please enter a number';
                               });
                             } else {
                               setState(() {
