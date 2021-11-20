@@ -69,13 +69,13 @@ class _CurrencyState extends State<Currency> {
                 final double? euroValue = double.tryParse(value);
                 if (euroValue == null) {
                   setState(() {
-                    error = "Please enter a number";
+                    error = 'Please enter a number';
                     lei = '';
                   });
                 } else {
                   setState(() {
                     error = null;
-                    lei = (euroValue * 4.5).toStringAsFixed(2) + ' RON';
+                    lei = '${(euroValue * 4.5).toStringAsFixed(2)} RON';
                   });
                 }
               },

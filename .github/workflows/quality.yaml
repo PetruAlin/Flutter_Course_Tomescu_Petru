@@ -11,8 +11,8 @@ jobs:
         with:
           channel: 'stable'
       - name: Run format 1
-        working-directory: .\week1\CurrencyConverter
-        run: flutter format
+        working-directory: .\week1\CurrencyConverter\lib
+        run: flutter format main.dart
       - name: Run analysis 1
         working-directory: .\week1\CurrencyConverter
         run: flutter analyze
