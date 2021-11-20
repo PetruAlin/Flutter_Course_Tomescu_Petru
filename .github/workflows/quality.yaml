@@ -12,7 +12,7 @@ jobs:
           channel: 'stable'
       - name: Run format 1
         working-directory: .\week1\CurrencyConverter
-        run: flutter format -l 120 --set-exit-if-changed
+        run: flutter format
       - name: Run analysis 1
         working-directory: .\week1\CurrencyConverter
         run: flutter analyze
