@@ -12,6 +12,9 @@
       <excludeFolder url="file://$MODULE_DIR$/week1/CurrencyConverter/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/week1/CurrencyConverter/build" />
       <excludeFolder url="file://$MODULE_DIR$/week1/CurrencyConverter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/week3/tic_tac_toe/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/week3/tic_tac_toe/build" />
+      <excludeFolder url="file://$MODULE_DIR$/week3/tic_tac_toe/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
