@@ -1,10 +1,7 @@
 name: Check the quality of my code
 on:
   push:
-    paths:
-      - week1\CurrencyConverter
-      - week2\luckyNumber
-      - week2\number_shape
+
 jobs:
   quality_check:
     runs-on: windows-latest
