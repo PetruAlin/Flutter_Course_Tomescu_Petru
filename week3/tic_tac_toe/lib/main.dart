@@ -223,14 +223,17 @@ class _TicTacToeState extends State<TicTacToe> {
                   }),
             ),
           ),
-          if (button) ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _reset();
-                      button = false;
-                    });
-                  },
-                  child: const Text('Play Again!')) else Container(),
+          if (button)
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _reset();
+                    button = false;
+                  });
+                },
+                child: const Text('Play Again!'))
+          else
+            Container(),
         ],
       ),
     );
