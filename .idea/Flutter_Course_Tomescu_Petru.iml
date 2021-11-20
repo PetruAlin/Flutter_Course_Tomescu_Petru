@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/week2/number_shape/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/week2/number_shape/build" />
+      <excludeFolder url="file://$MODULE_DIR$/week2/number_shape/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/week2/luckyNumber/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/week2/luckyNumber/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/week2/luckyNumber/build" />
+      <excludeFolder url="file://$MODULE_DIR$/week1/CurrencyConverter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/week1/CurrencyConverter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/week1/CurrencyConverter/.dart_tool" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
