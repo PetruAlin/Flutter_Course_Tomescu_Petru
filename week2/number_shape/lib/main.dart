@@ -29,15 +29,14 @@ class _NumberShapesState extends State<NumberShapes> {
   String? error;
 
   void _dialogBox(int number, String dialogText) {
-    showDialog(
+    showDialog<void>(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('$number'),
             content: Text(dialogText),
           );
-        }
-    );
+        });
   }
 
   bool _checkSquare(int number) {
@@ -64,16 +63,15 @@ class _NumberShapesState extends State<NumberShapes> {
     return result;
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Number Shapes"),
+        title: const Text('Number Shapes'),
         centerTitle: true,
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           const Padding(
             padding: EdgeInsets.fromLTRB(20, 20, 40, 20),
             child: Text(
@@ -102,7 +100,7 @@ class _NumberShapesState extends State<NumberShapes> {
           final int? number = int.tryParse(value);
           if (number == null) {
             setState(() {
-              error = "Please enter a number";
+              error = 'Please enter a number';
               controller.clear();
             });
           } else {
@@ -112,16 +110,15 @@ class _NumberShapesState extends State<NumberShapes> {
               controller.clear();
               if (_checkSquare(number)) {
                 if (_checkTriangle(number)) {
-                  dialogText = "Number $number is both SQUARE and TRIANGULAR.";
+                  dialogText = 'Number $number is both SQUARE and TRIANGULAR.';
                 } else {
-                  dialogText = "Number $number is SQUARE.";
+                  dialogText = 'Number $number is SQUARE.';
                 }
               } else {
                 if (_checkTriangle(number)) {
-                  dialogText = "Number $number is TRIANGULAR.";
+                  dialogText = 'Number $number is TRIANGULAR.';
                 } else {
-                  dialogText =
-                  "Number $number is neither TRIANGULAR or SQUARE.";
+                  dialogText = 'Number $number is neither TRIANGULAR or SQUARE.';
                 }
               }
               _dialogBox(number, dialogText);

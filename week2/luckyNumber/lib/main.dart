@@ -37,7 +37,8 @@ class _GuessNumberState extends State<GuessNumber> {
   int secretNumber = -1;
 
   void _dialogBox(int guess) {
-    showDialog<void>( // here
+    showDialog<void>(
+        // here
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
@@ -65,8 +66,7 @@ class _GuessNumberState extends State<GuessNumber> {
                   child: const Text('Ok')),
             ],
           );
-        }
-    );
+        });
   }
 
   @override
@@ -113,9 +113,9 @@ class _GuessNumberState extends State<GuessNumber> {
                 child: Column(
                   children: <Widget>[
                     const Text(
-                        'Try a number!',
-                        textScaleFactor: 1.8,
-                        style: TextStyle(color: Colors.grey),
+                      'Try a number!',
+                      textScaleFactor: 1.8,
+                      style: TextStyle(color: Colors.grey),
                     ),
                     Container(
                       margin: const EdgeInsetsDirectional.all(14.0),
@@ -130,47 +130,44 @@ class _GuessNumberState extends State<GuessNumber> {
                       ),
                     ),
                     ElevatedButton(
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(node);
-                          if (guessButton == 'Reset') {
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(node);
+                        if (guessButton == 'Reset') {
+                          setState(() {
+                            enable = true;
+                            guessButton = 'Guess';
+                            resultText = '';
+                          });
+                        } else {
+                          final String value = controller.text;
+                          final int? guess = int.tryParse(value);
+                          controller.clear();
+                          if (guess == null) {
                             setState(() {
-                              enable = true;
-                              guessButton = 'Guess';
-                              resultText = '';
+                              error = 'Please enter a number';
                             });
                           } else {
-                            final String value = controller.text;
-                            final int? guess = int.tryParse(value);
-                            controller.clear();
-                            if (guess == null) {
-                              setState(() {
-                                error = 'Please enter a number';
-                              });
-                            } else {
-                              setState(() {
-                                error = null;
-                                if (secretNumber == -1) {
-                                  secretNumber = Random().nextInt(99) + 1;
-                                }
-                                if (secretNumber > guess) {
-                                  resultText =
-                                  'You tried $guess\n Try higher.';
+                            setState(() {
+                              error = null;
+                              if (secretNumber == -1) {
+                                secretNumber = Random().nextInt(99) + 1;
+                              }
+                              if (secretNumber > guess) {
+                                resultText = 'You tried $guess\n Try higher.';
+                              } else {
+                                if (secretNumber < guess) {
+                                  resultText = 'You tried $guess\n  Try lower.';
                                 } else {
-                                  if (secretNumber < guess) {
-                                    resultText =
-                                    'You tried $guess\n  Try lower.';
-                                  } else {
-                                    resultText =
-                                    'You tried $guess\n You guessed right.';
-                                    _dialogBox(guess);
-                                    FocusScope.of(context).unfocus();
-                                  }
+                                  resultText = 'You tried $guess\n You guessed right.';
+                                  _dialogBox(guess);
+                                  FocusScope.of(context).unfocus();
                                 }
-                              });
-                            }
+                              }
+                            });
                           }
-                        },
-                        child: Text(guessButton),
+                        }
+                      },
+                      child: Text(guessButton),
                     )
                   ],
                 ),
