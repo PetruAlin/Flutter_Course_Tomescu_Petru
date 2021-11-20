@@ -41,8 +41,7 @@ class _CurrencyState extends State<Currency> {
       ),
       body: Column(
         children: <Widget>[
-          Image.network(
-              'https://storage0.dms.mpinteractiv.ro/media/1/1481/22466/19093585/1/76459788-l.jpg?width=600'),
+          Image.network('https://storage0.dms.mpinteractiv.ro/media/1/1481/22466/19093585/1/76459788-l.jpg?width=600'),
           Center(
             child: Column(
               children: <Widget>[
@@ -51,8 +50,7 @@ class _CurrencyState extends State<Currency> {
                   child: TextField(
                     enabled: true,
                     controller: controller,
-                    keyboardType:
-                        const TextInputType.numberWithOptions(decimal: true),
+                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
                     decoration: InputDecoration(
                       labelText: 'Enter the amount in EUR',
                       floatingLabelBehavior: FloatingLabelBehavior.never,

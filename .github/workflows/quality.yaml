@@ -1,7 +1,10 @@
 name: Check the quality of my code
 on:
   push:
-
+    paths:
+      - week1\CurrencyConverter
+      - week2\luckyNumber
+      - week2\number_shape
 jobs:
   quality_check:
     runs-on: windows-latest
@@ -11,20 +14,6 @@ jobs:
         with:
           channel: 'stable'
       - name: Run format
-        working-directory: .\week1\CurrencyConverter
         run: flutter format -l 120 --set-exit-if-changed
       - name: Run analysis
-        working-directory: .\week1\CurrencyConverter
-        run: flutter analyze
-      - name: Run format 2.1
-        working-directory: .\week2\luckyNumber
-        run: flutter format -l 120 --set-exit-if-changed
-      - name: Run analysis 2.1
-        working-directory: .\week2\luckyNumber
-        run: flutter analyze
-      - name: Run format 2.2
-        working-directory: .\week2\number_shape
-        run: flutter format -l 120 --set-exit-if-changed
-      - name: Run analysis 2.2
-        working-directory: .\week2\number_shape
         run: flutter analyze
