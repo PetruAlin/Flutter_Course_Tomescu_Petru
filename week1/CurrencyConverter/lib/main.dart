@@ -35,7 +35,7 @@ class _CurrencyState extends State<Currency> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Currency Converter',
+          'Currency Converter:',
         ),
         centerTitle: true,
       ),
