@@ -1,16 +1,13 @@
 # tic_tac_toe
 
-A new Flutter project.
+It's an implementation of the tic-tac-toe game. At once, their are two players (Red and Green). The game resets only if it is
+a draw, or a player has won. To reset the game, press the 'Play Again' button that appears under the game grid.
 
-## Getting Started
+## Running the app demo
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+https://user-images.githubusercontent.com/72905736/142755117-7f266326-ca57-4b31-95cb-c7ca59aa7616.mp4
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
