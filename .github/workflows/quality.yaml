@@ -10,21 +10,33 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
-      - name: Run format 1
+      - name: Run format Week 1 Project 1
         working-directory: .\week1\CurrencyConverter\lib
-        run: flutter format -l 120 main.dart
-      - name: Run analysis 1
+        run: flutter format -l 120 --set-exit-if-changed .
+      - name: Run analysis Week 1 Project 1
         working-directory: .\week1\CurrencyConverter
         run: flutter analyze
-      - name: Run format 2.1
+      - name: Run format Week 2 Project 1
         working-directory: .\week2\luckyNumber\lib
-        run: flutter format -l 120 main.dart
-      - name: Run analysis 2.1
+        run: flutter format -l 120 --set-exit-if-changed .
+      - name: Run analysis Week 2 Project 1
         working-directory: .\week2\luckyNumber
         run: flutter analyze
-      - name: Run format 2.2
+      - name: Run format Week 2 Project 2
         working-directory: .\week2\number_shape\lib
-        run: flutter format -l 120 main.dart
-      - name: Run analysis 2.2
+        run: flutter format -l 120 --set-exit-if-changed .
+      - name: Run analysis Week 2 Project 2
         working-directory: .\week2\number_shape
+        run: flutter analyze
+      - name: Run format Week 3 Project 1
+        working-directory: .\week3\tic_tac_toe\lib
+        run: flutter format -l 120 --set-exit-if-changed .
+      - name: Run analysis Week 3 Project 1
+        working-directory: .\week3\tic_tac_toe
+        run: flutter analyze
+      - name: Run format Week 3 Project 2
+        working-directory: .\week3\translate_words\lib
+        run: flutter format -l 120 --set-exit-if-changed .
+      - name: Run analysis Week 3 Project 2
+        working-directory: .\week3\translate_words
         run: flutter analyze
