@@ -15,6 +15,9 @@
       <excludeFolder url="file://$MODULE_DIR$/week3/tic_tac_toe/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/week3/tic_tac_toe/build" />
       <excludeFolder url="file://$MODULE_DIR$/week3/tic_tac_toe/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/week3/translate_words/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/week3/translate_words/build" />
+      <excludeFolder url="file://$MODULE_DIR$/week3/translate_words/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
